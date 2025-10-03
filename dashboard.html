@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <script src="https://upload-widget.cloudinary.com/global/all.js"></script>
+   <script src="https://widget.cloudinary.com/v2.0/global/all.js"></script>
+
+  <!-- Main css -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+<meta name="robots" content="noindex, follow">
+</head>
+<body>
+     <div class="sidebar">
+    <a data-target="home" class="active"><i class="ri-dashboard-fill"></i> Dashboard</a>
+    <a data-target="userinfo" ><i class="ri-user-fill"></i> Profile</a>
+    <a data-target="about"><i class="ri-edit-fill"></i> Registration</a>
+    <a data-target="services"><i class="ri-book-fill"></i> Generate card</a>
+    <a data-target="contact"><i class="ri-wallet-fill"></i> Payment info</a>
+    <button class="btn" id="signOutBtn">Logout</button>
+
+  </div>
+
+  <!-- Content -->
+   <div class="main-container">
+    <div class="search-and-mode">
+    <div class="search-box">
+<i class="ri-search-line"></i>
+      <input type="text" placeholder="search for courses , documents , activities.....">
+    </div>
+
+    </div>
+
+
+  <div class="content">
+  <!-- dashboard  -->
+    <div id="home" class="content-section active">
+      <h1>Dashboard</h1>
+
+            <div class="welcome-message-container">
+        <div class="text">
+            <h1 id="name"> </h1>
+        </div>
+        <div class="image">
+            <img src="images/Humaaans Space.png" alt="">
+        </div>
+    </div>
+     <div class="data" id="data">
+      <h1>Active course</h1>
+    <div class="studentinfo">
+          <h1 id="courseName"> course name</h1>
+
+       <div class="info">
+        <div class="info-l">
+            
+
+            <span><p class="bold">timings:</p><p id="infotimings"></p></span>
+            <span><p class="bold">Days:</p><p id="infodays"></p></span>
+           <span><p class="bold">Campus:</p><p id="campusname"></p></span>
+           
+             </div>
+             <div class="info-r">
+                <span><p class="bold">City:</p><p id="cityname"></p></span>
+           <span><p class="bold">Roll no:</p><p id="rollNo"></p></span>
+             </div>
+       </div>
+    </div>  
+     </div>
+    </div>
+
+
+    <!-- profile   -->
+    <div id="userinfo" class="content-section">
+     <div class="userinfo" id="userinfo">
+        <div class="profileimage-section">
+        <div class="profilepic">
+            <img src="" alt="" id="profilepic">
+        </div>
+        <span>
+            <p class="bold">name:</p> <p id="username"></p>
+        </span>
+        <span>
+            <p class="bold">email :</p> <p id="useremail"></p>
+        <button class="btn" id="verifyEmail">verify email</button>
+
+        </span>
+        <input type="password" id="newpass" placeholder="update password">
+        <button id="updatepass" class="btn">update password</button>
+
+        </div>
+     </div>
+    </div>
+
+
+    <!-- registration  -->
+    <div id="about" class="content-section">
+      
+            <div class="container register-container">
+                <div class="signup-content register-content">
+                    <div class="signup-form register-form" >
+                        <h2 class="form-title">Register</h2>
+                     <div  id="register-form">
+
+                        <div class="form-group">
+                               
+                                 <div id="preview"></div><br><br>
+                                <button id="regImage" class="btn">upload image</button>
+                       
+                            </div>
+
+                               <div class="form-group">
+                             
+                                <input type="text" name="your_name" id="signupname" placeholder="your name"/>
+                            </div>
+
+    <div class="form-group">
+                             
+                                <input type="text" name="your_city" id="city" placeholder="your city"/>
+                            </div>
+
+<div class="form-group">
+                                
+                              <select name="smitCourses" id="smitCourses">
+  <option value="select" disabled selected hidden>-- Select Course --</option>
+  <option value="Modern Web & App Development">Modern Web & App Development</option>
+  <option value="AI & Data Science">AI & Data Science</option>
+  <option value="Cyber Security">Cyber Security</option>
+  <option value="Graphic Designing">Graphic Designing</option>
+  <option value="Agentic AI">Agentic AI</option>
+  <option value="Video Editing">Video Editing</option>
+  <option value="Video Editing & Graphic Designing">Video Editing & Graphic Designing</option>
+  <option value="Certified Computer Operator (CCO)">Certified Computer Operator (CCO)</option>
+  <option value="Certified Computer Accountancy (CCA)">Certified Computer Accountancy (CCA)</option>
+</select>
+                            </div>
+
+                            <div class="form-group">
+                            <select name="timings" id="timing">
+  <option  >Select class timing</option>
+  <option value="09:00-10:00">09:00 AM – 10:00 AM</option>
+  <option value="10:00-11:00">10:00 AM – 11:00 AM</option>
+  <option value="11:00-12:00">11:00 AM – 12:00 PM</option>
+  <option value="12:00-13:00">12:00 PM – 01:00 PM</option>
+  <option value="13:00-14:00">01:00 PM – 02:00 PM</option>
+  <option value="14:00-15:00">02:00 PM – 03:00 PM</option>
+  <option value="15:00-16:00">03:00 PM – 04:00 PM</option>
+  <!-- add more as needed -->
+</select>
+                            </div>
+<div class="form-group">
+                            <select name="classDays" id="classDays">
+  <option value="select">-- Select Class Days --</option>
+  <option value="mon-wed-fri">Monday, Wednesday & Friday</option>
+  <option value="tue-thu-sat">Tuesday, Thursday & Saturday</option>
+  <option value="fri-sat-sun">Friday, Saturday & Sunday</option>
+  <option value="sat-sun">Saturday & Sunday</option>
+</select>
+</div>
+                            <div class="form-group">
+                                <select name="campus" id="campus">
+    <option value="select" disabled selected hidden>Select Campus</option>
+    <!-- Karachi Campuses -->
+    <optgroup label="Karachi">
+      <option value="Gulshan Campus">Gulshan Campus</option>
+      <option value="North Nazimabad Campus">North Nazimabad Campus</option>
+      <option value="Korangi Campus">Korangi Campus</option>
+      <option value="Bahadurabad Campus">Bahadurabad Campus</option>
+      <option value="Saddar Campus">Saddar Campus</option>
+    </optgroup>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                
+                                <input type="text" name="Instructor" id="Instructor" placeholder="Instructor"/>
+                            </div>
+
+                             
+
+                          
+                            <div class="form-group form-button">
+                                <input type="button" name="signup" id="register" class="btn" value="Register"/>
+                            </div>
+                             <div class="editbtns" id="editbtns">
+                                  
+                                <input type="button" name="signup" id="edit" class="btn" value="Edit"/>
+                                <input type="button" name="signup" id="save" class="btn" value="save"/>
+                           
+                             </div>
+                            
+        
+                    </div>
+                   
+                </div>
+            </div>
+      
+    </div>
+   
+  </div>
+
+
+   <!-- generate card -->
+     <div id="services" class="content-section">
+        <button class="btn" id="genCard">Generate Card</button>
+        
+    </div>
+    <div id="contact" class="content-section">
+      <h1>Contact</h1>
+      <p>Get in touch with us.</p>
+    </div>
+     
+  <!-- content closing div  -->
+</div>
+</div>
+<div id="overlay">
+    <img src="/images/Trail loading.gif" alt="">
+</div>
+     <!-- JS -->
+      <script type="module" src="/js/signout.js"></script>
+     <script type="module" src="js/login.js"></script>
+     <script type="module" src="js/firebase.js"></script>
+     <script type="module" src="js/main.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</body>
+</html>
