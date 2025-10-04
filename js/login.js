@@ -136,9 +136,9 @@ let registerbtn=document.getElementById("register");
       );
     }
 
-   document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   let uploadimage = document.getElementById("regImage");
-  if(uploadedImage){
+  if (uploadimage) {
     uploadimage.addEventListener("click", openUploadWidget);
   }
 });
@@ -226,8 +226,7 @@ window.addEventListener("DOMContentLoaded",()=>{
     }
 console.log(user)
     try {
- 
-      const q = query(collection(db, "students"), where("uid", "==", user.uid));
+   if(user){   const q = query(collection(db, "students"), where("uid", "==", user.uid));
 
       onSnapshot(q, (snapshot) => {
         if (snapshot.empty) {
@@ -252,7 +251,8 @@ console.log(user)
           inforollno.innerHTML = result.rollNumber;
           infodays.innerHTML = result.classdays;
         });
-      });
+      });}
+   
     } catch (error) {
       console.error(error);
     }
