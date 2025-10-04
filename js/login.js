@@ -181,6 +181,8 @@ let currentUser=auth.currentUser
       public_id: uploadedImage.public_id,
       format: uploadedImage.format,
       uploadedAt: new Date(),
+
+      
     });
 
     toastr.success("Registration Successful ");
@@ -190,11 +192,23 @@ let currentUser=auth.currentUser
   } finally {
     overlay.style.display = "none";
   }
+
+    preview.innerHTML=""
+     preview.style.width="0px"
+    preview.style.height="0px"
+   signupname.value=""
+ timings.selectedIndex=0
+ campus.selectedIndex=0
+Instructor.value=""
+ smitCourses.selectedIndex=0
+city.value=""
+classdays.selectedIndex=0
 };
 
 
 if(registerbtn){
   registerbtn.addEventListener("click",registerStudent)
+  
 }
 
 
@@ -356,6 +370,16 @@ let savedata = async () => {
   } finally {
     overlay.style.display = "none";
   }
+    preview.innerHTML=""
+    preview.style.width="0px"
+    preview.style.height="0px"
+   signupname.value=""
+ timings.selectedIndex=0
+ campus.selectedIndex=0
+Instructor.value=""
+ smitCourses.selectedIndex=0
+city.value=""
+classdays.selectedIndex=0
 };
 
 if(save){
