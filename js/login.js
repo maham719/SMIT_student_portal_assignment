@@ -138,9 +138,9 @@ let registerbtn=document.getElementById("register");
 
    document.addEventListener("DOMContentLoaded", () => {
   let uploadimage = document.getElementById("regImage");
-  if(uploadedImage){
+
     uploadimage.addEventListener("click", openUploadWidget);
-  }
+  
 });
 
 let user =()=>{
