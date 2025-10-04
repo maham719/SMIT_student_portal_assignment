@@ -135,12 +135,11 @@ let registerbtn=document.getElementById("register");
         }
       );
     }
-
-   document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   let uploadimage = document.getElementById("regImage");
-
+  if (uploadimage) {
     uploadimage.addEventListener("click", openUploadWidget);
-  
+  }
 });
 
 let user =()=>{
