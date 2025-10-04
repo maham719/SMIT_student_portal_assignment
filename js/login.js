@@ -1,11 +1,16 @@
-import {auth,onAuthStateChanged,signInWithEmailAndPassword,sendEmailVerification, signOut,db,collection,addDoc,doc, setDoc,getDocs,onSnapshot,query, where, updatePassword ,updateDoc } from "./firebase.js"
+import {auth,onAuthStateChanged,signInWithEmailAndPassword, signOut,db,collection,addDoc,doc, setDoc,getDocs,onSnapshot,query, where, updatePassword ,updateDoc } from "./firebase.js"
 
 let email=document.getElementById("loginemail")
 let password=document.getElementById("loginpass")
 let loginbtn=document.getElementById("login")
 let username=document.getElementById("name");
 let storedName = localStorage.getItem("username");
-let verbtn=document.getElementById("verifyEmail")
+let closebtn=document.getElementById("closebtn")
+if(closebtn){
+  closebtn.addEventListener("click",()=>{
+    closebtn.parentNode.remove()
+  })
+}
 if (storedName && username) {
   username.innerText =`Welcome , ${storedName}`;
 }
@@ -82,14 +87,7 @@ signInWithEmailAndPassword(auth, email.value, password.value)
       });
     });
 
-    let verifyemailfunc=()=>{
-        sendEmailVerification(auth.currentUser)
-  .then(() => {
-    toastr.info("email has been sent... check your email to verify!")
-    
-  });
-    }
-    verbtn.addEventListener("click", verifyemailfunc)
+
 // roll no logic 
 function generateRollNumber() {
   let num = Math.floor(Math.random() * 1000) + 1;
@@ -140,7 +138,9 @@ let registerbtn=document.getElementById("register");
 
    document.addEventListener("DOMContentLoaded", () => {
   let uploadimage = document.getElementById("regImage");
-  uploadimage.addEventListener("click", openUploadWidget);
+  if(uploadedImage){
+    uploadimage.addEventListener("click", openUploadWidget);
+  }
 });
 
 let user =()=>{
@@ -193,7 +193,9 @@ let currentUser=auth.currentUser
 };
 
 
-registerbtn.addEventListener("click",registerStudent)
+if(registerbtn){
+  registerbtn.addEventListener("click",registerStudent)
+}
 
 
 // dashboard student info logic 
@@ -207,14 +209,16 @@ let infodata=document.getElementById("data")
 let profilepic=document.getElementById("profilepic")
 let displayname=document.getElementById("username")
 let useremail=document.getElementById("useremail")
+let userinfo=document.getElementById("userinfo")
 let data=false
 
-if(!data){
+if(!data && infodata){
  infodata.style.display="block";
 }
-let getdata = () => {
+window.addEventListener("DOMContentLoaded",()=>{
+  let getdata = () => {
   onAuthStateChanged(auth, (user) => {
-    if (!user) {
+    if (!user && infodata) {
       console.log("No user logged in");
       
       infodata.style.display = "none";
@@ -232,7 +236,7 @@ console.log(user)
           return;
         }
 
-
+      userinfo.style.display="flex"
         infodata.style.display = "block";
        editbtns.style.display="flex"
         snapshot.forEach((doc) => {
@@ -256,6 +260,7 @@ console.log(user)
 };
 
 getdata();
+})
 
 
 // profile logic 
@@ -281,7 +286,9 @@ let updatepassfunc = () => {
 }
 
 let updatePass=document.getElementById("updatepass")
-updatePass.addEventListener("click",updatepassfunc)
+if(updatePass){
+  updatePass.addEventListener("click",updatepassfunc)
+}
 
 let save=document.getElementById("save")
 let edit =document.getElementById("edit")
@@ -351,7 +358,11 @@ let savedata = async () => {
   }
 };
 
+if(save){
 save.addEventListener("click", savedata);
 
+}
 
-edit.addEventListener("click" , editdata)
+if(edit){
+  edit.addEventListener("click" , editdata)
+}

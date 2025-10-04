@@ -20,7 +20,7 @@
 <body>
      <div class="sidebar">
     <a data-target="home" class="active"><i class="ri-dashboard-fill"></i> Dashboard</a>
-    <a data-target="userinfo" ><i class="ri-user-fill"></i> Profile</a>
+    <a data-target="userInfo" ><i class="ri-user-fill"></i> Profile</a>
     <a data-target="about"><i class="ri-edit-fill"></i> Registration</a>
     <a data-target="services"><i class="ri-book-fill"></i> Generate card</a>
     <a data-target="contact"><i class="ri-wallet-fill"></i> Payment info</a>
@@ -44,7 +44,8 @@
     <div id="home" class="content-section active">
       <h1>Dashboard</h1>
 
-            <div class="welcome-message-container">
+            <div class="welcome-message-container" id="welcome">
+                <button id="closebtn" class="closebtn"><i class="ri-close-large-fill"></i></button>
         <div class="text">
             <h1 id="name"> </h1>
         </div>
@@ -55,7 +56,7 @@
      <div class="data" id="data">
       <h1>Active course</h1>
     <div class="studentinfo">
-          <h1 id="courseName"> course name</h1>
+          <h2 id="courseName"> course name</h2>
 
        <div class="info">
         <div class="info-l">
@@ -77,7 +78,7 @@
 
 
     <!-- profile   -->
-    <div id="userinfo" class="content-section">
+    <div id="userInfo" class="content-section">
      <div class="userinfo" id="userinfo">
         <div class="profileimage-section">
         <div class="profilepic">
@@ -105,7 +106,7 @@
             <div class="container register-container">
                 <div class="signup-content register-content">
                     <div class="signup-form register-form" >
-                        <h2 class="form-title">Register</h2>
+                        <h3 class="form-title">Register</h3>
                      <div  id="register-form">
 
                         <div class="form-group">
@@ -223,6 +224,7 @@
 </div>
      <!-- JS -->
       <script type="module" src="/js/signout.js"></script>
+      <script type="module" src="/js/verifyemail.js"></script>
      <script type="module" src="js/login.js"></script>
      <script type="module" src="js/firebase.js"></script>
      <script type="module" src="js/main.js"></script>
